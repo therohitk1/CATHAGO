@@ -1,0 +1,33 @@
+<!-- partials/page-title.ejs -->
+<div class="bg-white shadow-sm rounded-lg p-6 relative mb-6 h-[80px] flex items-center overflow-hidden">
+  <!-- Decorative top bar -->
+  <div class="absolute top-0 left-0 right-0 bg-blue-600 h-1 rounded-t-lg"></div>
+
+  <div class="flex items-center">
+    <!-- Icon Container -->
+    <div class="bg-blue-600 text-white shadow-lg rounded-full flex items-center justify-center w-8 h-8 -translate-y-1 mr-4">
+      <i class="fas fa-<%= icon %> text-2xl"></i>
+    </div>
+
+    <div>
+      <!-- Title -->
+      <h1 class="text-blue-600 font-bold text-2xl"><%= title %></h1>
+      <!-- Breadcrumb -->
+      <nav class="mt-1">
+        <ol class="flex text-sm text-gray-600 space-x-2">
+          <li>
+            <a href="#" class="text-blue-600 hover:underline">Home</a>
+            <span class="mx-1">/</span>
+          </li>
+          <li class="text-gray-500"><%= title %></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Styled Separator -->
+  <div class="absolute bottom-0 left-0 right-0 flex items-center mt-4">
+    <div class="w-16 border-b-2 border-blue-600"></div>
+    <div class="flex-grow border-b-2 border-gray-300 opacity-50"></div>
+  </div>
+</div>

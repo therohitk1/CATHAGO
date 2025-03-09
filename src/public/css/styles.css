@@ -1,0 +1,47 @@
+/* public/css/styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fc;
+  font-family: 'Nunito', sans-serif;
+}
+
+footer {
+  background: #18132f;
+}
+
+footer .text-muted {
+  color: #b8b5c3 !important;
+}
+
+footer a.text-muted:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.sidebar {
+  background: #06011a;
+}
+
+.nav-link {
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background-color: #007bff; /* Active link color */
+  color: white !important;
+  font-weight: bold;
+  border-left: 4px solid #0056b3; /* Left border highlight */
+  padding-left: 12px;
+}

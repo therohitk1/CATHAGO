@@ -1,0 +1,95 @@
+<% layout('layouts/main') %>
+<%- include('../partials/page-title', { title: 'User Settings', icon: 'cog' }) %>
+<section class="flex justify-center items-center h-[70vh] bg-gray-100 p-6 -mt-100">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <!-- Tab navigation -->
+      <div class="border-b">
+        <nav class="flex">
+          <button class="w-1/3 py-3 text-center text-blue-600 font-semibold border-b-2 border-blue-600" id="password-tab" data-bs-toggle="tab" data-bs-target="#password">
+            <i class="fas fa-key mr-2"></i> Change Password
+          </button>
+          <button class="w-1/3 py-3 text-center text-gray-600 hover:text-blue-600" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile">
+            <i class="fas fa-user mr-2"></i> Update User
+          </button>
+          <button class="w-1/3 py-3 text-center text-red-600 hover:text-red-800" id="delete-tab" data-bs-toggle="tab" data-bs-target="#delete">
+            <i class="fas fa-trash mr-2"></i> Delete Account
+          </button>
+        </nav>
+      </div>
+      
+      <!-- Tab content -->
+      <div class="p-6">
+        <!-- Change Password -->
+        <div id="password" class="tab-content">
+          <h4 class="text-xl font-semibold mb-4">Change Your Password</h4>
+          <form>
+            <div class="mb-4">
+              <label class="block text-gray-700">Current Password</label>
+              <input type="password" class="w-full px-4 py-2 border rounded-lg" id="currentPassword" required>
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">New Password</label>
+              <input type="password" class="w-full px-4 py-2 border rounded-lg" id="newPassword" required>
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Confirm New Password</label>
+              <input type="password" class="w-full px-4 py-2 border rounded-lg" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Update Password</button>
+          </form>
+        </div>
+        
+        <!-- Update User -->
+        <div id="profile" class="hidden tab-content">
+          <h4 class="text-xl font-semibold mb-4">Update Profile Information</h4>
+          <form>
+            <div class="mb-4">
+              <label class="block text-gray-700">Username</label>
+              <input type="text" class="w-full px-4 py-2 border rounded-lg" id="username">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Email Address</label>
+              <input type="email" class="w-full px-4 py-2 border rounded-lg" id="email">
+            </div>
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">Save Changes</button>
+          </form>
+        </div>
+        
+        <!-- Delete Account -->
+        <div id="delete" class="hidden tab-content">
+          <h4 class="text-xl font-semibold text-red-600 mb-4">Delete Your Account</h4>
+          <p class="text-gray-600">This action is irreversible. All data will be permanently removed.</p>
+          <form>
+            <div class="mb-4">
+              <label class="block text-gray-700">Type "DELETE" to confirm</label>
+              <input type="text" class="w-full px-4 py-2 border rounded-lg" id="deleteConfirmation" required>
+            </div>
+            <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">Permanently Delete Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../partials/footer') %>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll("nav button");
+    const tabContents = document.querySelectorAll(".tab-content");
+  
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function () {
+        // Remove active classes from all tabs
+        tabs.forEach(btn => btn.classList.remove("text-blue-600", "border-blue-600"));
+        tabContents.forEach(content => content.classList.add("hidden"));
+  
+        // Activate the clicked tab
+        this.classList.add("text-blue-600", "border-blue-600");
+        const target = document.querySelector(this.getAttribute("data-bs-target"));
+        target.classList.remove("hidden");
+      });
+    });
+  });
+  </script>
+  

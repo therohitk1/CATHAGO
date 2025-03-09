@@ -1,0 +1,64 @@
+<% layout('layouts/main', { title: 'Admin Dashboard', activeTab: 'admin-dashboard' }) %>
+
+<div class="card">
+    <div class="card-header bg-white">
+        <h5 class="mb-0"><i class="fas fa-user-shield me-2"></i> Admin Dashboard</h5>
+    </div>
+    <div class="card-body">
+        <p>Manage users, monitor system activity, and configure settings.</p>
+        
+        <div class="row">
+            <!-- Total Users -->
+            <div class="col-md-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5>Total Users</h5>
+                        <h2><i class="fas fa-users me-2"></i> <%= adminStats.totalUsers %></h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents Scanned -->
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5>Documents Scanned</h5>
+                        <h2><i class="fas fa-file-alt me-2"></i> <%= adminStats.totalScans %></h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Requests -->
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <h5>Pending Requests</h5>
+                        <h2><i class="fas fa-exclamation-circle me-2"></i> <%= adminStats.pendingRequests %></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-4">Recent User Activity</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% adminStats.recentActivity.forEach((activity, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= activity.username %></td>
+                        <td><%= activity.action %></td>
+                        <td><%= activity.timestamp %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

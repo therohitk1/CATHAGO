@@ -1,0 +1,77 @@
+
+/* public/css/auth.css */
+:root {
+  --primary-color: #4e73df;
+  --secondary-color: #f8f9fc;
+}
+
+.auth-card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.auth-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-body {
+  padding: 2rem;
+}
+
+.form-control {
+  border-radius: 10rem;
+  font-size: 0.8rem;
+  padding: 1.5rem 1rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  border-color: #bac8f3;
+}
+
+.btn-login {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 10rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  height: 50px;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s;
+}
+
+.btn-login:hover {
+  background-color: #2653d4;
+  transform: translateY(-2px);
+}
+
+.input-group-text {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 10rem 0 0 10rem;
+  color: white;
+}
+
+.form-floating label {
+  color: #6e707e;
+}
+
+.auth-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.brand-logo {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,37 @@
+<aside class="sidebar text-white p-3" style="width: 250px; min-height: 100vh;">
+  <div class="logo-container text-center mb-4 pt-3">
+    <a href="/" class="text-decoration-none">
+      <i class="fas fa-file-medical text-primary fs-2"></i>
+      <h4 class="text-white mt-2">DocScan</h4>
+    </a>
+  </div>
+  <% if (user) { %>
+  <div class="user-profile bg-dark-subtle p-3 rounded mb-4">
+    <div class="d-flex align-items-center mb-2">
+      <div class="avatar bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;">
+        <i class="fas fa-user text-white"></i>
+      </div>
+      <div>
+        <h6 class="mb-0"><%= user.username %></h6>
+        <small class="text-light-emphasis"><%= user.email %></small>
+      </div>
+    </div>
+    <div class="credits-container mt-2 d-flex justify-content-between align-items-center">
+      <span>Available Credits</span>
+      <span class="badge bg-primary px-2 py-1"><%= user.credits %></span>
+    </div>
+  </div>
+  <% } %>
+  <nav class="sidebar-nav">
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2"><a href="/dashboard" class="nav-link text-white"><i class="fas fa-chart-bar me-2"></i> Dashboard</a></li>
+      <li class="nav-item mb-2"><a href="/profile" class="nav-link text-white"><i class="fas fa-user-circle me-2"></i> Profile</a></li>
+      <li class="nav-item mb-2"><a href="/docs-scan" class="nav-link text-white"><i class="fas fa-file-alt me-2"></i> Doc Scan</a></li>
+      <li class="nav-item mb-2"><a href="/scan-history" class="nav-link text-white"><i class="fas fa-history me-2"></i> Scan History</a></li>
+      <li class="nav-item mb-2"><a href="/settings" class="nav-link text-white"><i class="fas fa-cog me-2"></i> Settings</a></li>
+    </ul>
+  </nav>
+  <div class="mt-auto pt-4">
+    <a href="/auth/logout" class="btn btn-outline-light w-100"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+  </div>
+</aside>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+
+     <!-- Tailwind css -->
+     <script src="https://cdn.tailwindcss.com"></script>
+
+     <link href="./output.css" rel="stylesheet">
+
+    <%- block('head') %>
+</head>
+<body>
+    <%- include('../partials/alerts') %> 
+    
+    <div class="d-flex vh-100">
+        <!-- Sidebar (Fixed) -->
+        <aside class="bg-dark text-white p-3 d-flex flex-column" style="width: 300px; height: 100vh; position: fixed; left: 0; top: 0; overflow-y: auto;">
+            <div class="text-center mb-4 pt-3">
+                <a href="/" class="text-decoration-none">
+                    <i class="fas fa-file-medical text-primary fs-2"></i>
+                    <h4 class="text-white mt-2">DocScan</h4>
+                </a>
+            </div>
+            
+            <% if (user) { %>
+            <div class="bg-secondary p-3 rounded mb-4">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;">
+                        <i class="fas fa-user text-white"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0"><%= user.username %></h6>
+                        <small class="text-light"><%= user.email %></small>
+                    </div>
+                </div>
+                <div class="mt-2 d-flex justify-content-between">
+                    <span>Credits</span>
+                    <span class="badge bg-primary px-2 py-1"><%= user.credits %></span>
+                </div>
+            </div>
+            <% } %>
+            
+            <!-- <nav class="flex-grow-1">
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/dashboard" class="nav-link text-white"><i class="fas fa-chart-bar me-2"></i> Dashboard</a></li>
+                    <li class="nav-item mb-2"><a href="/user/profile" class="nav-link text-white"><i class="fas fa-user-circle me-2"></i> Profile</a></li>
+                    <li class="nav-item mb-2"><a href="/docs-scan" class="nav-link text-white"><i class="fas fa-file-alt me-2"></i> Doc Scan</a></li>
+                    <li class="nav-item mb-2"><a href="/scan-history" class="nav-link text-white"><i class="fas fa-history me-2"></i> Scan History</a></li>
+                    <li class="nav-item mb-2"><a href="/settings" class="nav-link text-white"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                </ul>
+            </nav> -->
+
+            <nav class="flex-grow-1">
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="/dashboard" class="nav-link <%= activePage === 'dashboard' ? 'active' : '' %>">
+                            <i class="fas fa-chart-bar me-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/user/profile" class="nav-link <%= activePage === 'profile' ? 'active' : '' %>">
+                            <i class="fas fa-user-circle me-2"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/docs-scan" class="nav-link <%= activePage === 'docs-scan' ? 'active' : '' %>">
+                            <i class="fas fa-file-alt me-2"></i> Doc Scan
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/scan-history" class="nav-link <%= activePage === 'scan-history' ? 'active' : '' %>">
+                            <i class="fas fa-history me-2"></i> Scan History
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/user/settings" class="nav-link <%= activePage === 'settings' ? 'active' : '' %>">
+                            <i class="fas fa-cog me-2"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+
+            <div class="mt-auto pt-4">
+                <a href="/auth/logout" class="btn btn-outline-light w-100"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content (Scrollable) -->
+        <main class="flex-grow-1 p-4" style="margin-left: 300px; overflow-y: auto; height: 100vh;">
+            <%- body %>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <%- block('scripts') %>
+</body>
+
+</html>
